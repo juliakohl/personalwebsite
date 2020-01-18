@@ -1,0 +1,11 @@
+p {
+    font-size: 1.2rem;
+    text-align: center;
+}
+.center{
+    text-align: center;
+}
+.lg_margin{
+    margin-top: 25vh;
+    margin-bottom: 25vh;
+}
