@@ -1,0 +1,230 @@
+<script>
+    /* 
+     * Ausdrücke
+     *
+     */
+
+    //  var X, z, y;
+
+    //  X = '(Leer)';
+    //  console.log(X);
+    //  z = z+3;
+    //  y = y+1;
+    //  console.log(z, y)
+
+
+    /* 
+     * Zuweisung / Assignment
+     * 
+     */
+
+
+    //  var x = 3;
+    // console.log('x+=3', x+=3, x);
+    // console.log('x*=3', x*=3, x);
+    // console.log('x/=3', x/=3, x);
+    // console.log('x++', x++, x);
+    // console.log('++x', ++x, x);
+    // console.log('x+=1', x+=1, x);
+
+
+    /* 
+     * Logical Operators && Short Circuit
+     *
+     */
+
+    // var z = 5;
+
+    //var x = 3 && 4 && z;
+    // console.log('Wert von 3 && 4', x);
+
+    // console.log('3 && 4:', (3 && 4) ) ;
+    // console.log('3 && 4 && 5:', 3 && 4 && 5);
+    // console.log('3 || 4:', 3 || 4);
+    // var x = 3;
+    // var y = 3;
+    // (x ==3 ) && (y == 4 )
+    // console.log('W && F', true && false);
+    // console.log('W || F', true || false);
+    // console.log('W && F && W', true && false && true);
+    // console.log('W || F || W', true || false || true);
+
+
+    //  var x = "Peter";
+    //  var y = "Hans";
+
+    //  console.log(x && y);
+    //  console.log(typeof(y));
+
+
+    //  console.log((y+=x) || (y+=1) || brezensepp);
+
+    //  console.log(typeof(y));
+
+
+    // console.log(x, y);
+
+
+    /* 
+     * Short Circuit in Action
+     *
+     */
+
+    // Beispiel aus JS - the definitive guide
+    //  var book = {};
+
+    //  book.subtitle = "Hallo";
+
+    //  var len = book.subtitle.length;
+
+    //  console.log(len);
+
+    // var len = undefined;
+    // if (book) {
+    //     if (book.subtitle) {
+    //         len = book.subtitle.length;
+    //     }
+    // }
+    // console.log(len);
+
+    // book.subtitle = "Hallo Welt";
+    // var len = book && book.subtitle && book.subtitle.length;
+    // console.log(len);
+
+
+
+    /* 
+     * typeof und instanceof Operator
+     *
+     */
+
+    // console.log(typeof Hallo Welt);
+    // console.log(typeof 3);
+    // console.log(typeof 3.3);
+    // console.log(typeof 'Hallo Welt');
+    // console.log(typeof function(x) {return x*x;});
+
+    // var o = {
+    //     x: 3,
+    //     y: 4
+    // };
+    // console.log(typeof o);
+
+
+
+    // Date
+    // console.log(typeof Date());
+    // console.log(Date());
+    // var x = new Date();
+    // console.log(typeof x);
+
+    // // instanceof
+    // console.log( 3.0 instanceof Number);
+    // var x = 3.0;
+    // console.log( x instanceof Number);
+
+    // var a = [];
+    // console.log( a instanceof Array);
+
+
+    /* 
+     * Kontrollstrukturen
+     *
+     */
+
+    // for (var i = 0; i < 10; i++) {
+    //     console.log(i);
+    // }
+
+    // var i = 10
+    // while (i >=0) {
+    //     console.log(i);
+    //     i--;
+    // }
+
+    // var i = 0
+    // do {
+    //     console.log(i);
+    //     i++;
+    // } while (i < 10);
+
+    // Iterator für Properties
+    // var o = {x: 'Hallo', y: 'Welt'};
+    // for (prop in o) {
+    //     console.log(prop);
+    //     console.log(o[prop]);
+    // }
+
+    // // Kein dynamischer Zugriff auf Properties per "." Notation
+    // var o = {x: 'Hallo', y: 'Welt'};
+    // for (x in o) {
+    //     console.log(x);
+    //     console.log(o.x);
+    // }
+
+     var a = [10, 11, 12, 14];
+     for (x in a) {
+         console.log(x);
+         console.log(a[x]);
+     }
+
+     var a = [10, 11, 12, 14];
+     for (x of a) {
+         console.log('x', x);
+         console.log('a[x]', a[x]);
+     }
+
+    // // // Funktionsdefinitionen
+    // var quadrat = function (n) {
+    //     return n * n;
+    // }
+
+    // console.log('quadrat', quadrat);
+
+    //console.log('quadrat(5)', quadrat(5));
+
+    /* 
+     * Funktionen
+     *
+     */
+
+    // Funktionen sind "first-class citizens"
+    // daher sind sie auch als Property eines Objekts möglich 
+    // var o = {
+    //     x: 2,
+    //     y: 4
+    // };
+    // o.squareFunc = quadrat;
+
+    // console.log(o);
+
+    // console.log(o.squareFunc);
+
+    // console.log('o.squareFunc(5)', o.squareFunc(5));
+
+    // var a = [];
+    // a[0] = function(x) {return x * x;};
+    // console.log(a[0]);
+
+    /* 
+     * Objektzugriff
+     *
+     */
+
+    // let o = {} ;
+    // console.log(o);
+
+    // o.x = 3;
+    // o.y = 4;
+    // console.log(o);
+
+    // console.log(o.x, o.y);
+
+    // // console.log(o.'x', o.'y');
+
+    // console.log(o['x'], o['y']);
+
+    // console.log(o['xzzz'], o['y']);
+
+    // console.log(o.xzzzz, o.y);
+</script>

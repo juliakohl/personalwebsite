@@ -1,0 +1,15 @@
+<html>
+    <head>
+        <title>Test</title>
+    </head>
+    <body>
+        <h1 id='test'>Überschrift</h1>
+        <script async>
+        alert("Script Tag erreicht");
+        document.getElementById('test').innerHTML = "Neue Überschrift";
+        alert("Script Ende erreicht!");
+        </script>
+        <p>Jetzt kommt noch mehr Text</p>
+        <script>alert("Schicht im Schacht!");</script>
+    </body>
+</html>
