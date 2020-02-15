@@ -21,60 +21,61 @@
     <title>U06 - Formulare</title>
     <script>
         function validate() {
+
+            errors = [];
             // Prüfe Nachname
                 var nn = document.getElementById('nachname').value;
                 // Falls es kein Element mit der ID nachname gibt, ist der Rückgabewert von 
                 // document.getElementById null.fehler
                 // Prüfung nn == "" prüft, ob nn leer ist
                 if (nn == null || nn == '') {
-                    alert('Nachname fehlt!');
+                    errors.push('Nachname');
                     document.getElementById('nachname').classList.add("fehler");
-                    return false;
                 }
             // Prüfe Vorname
                 var vn = document.getElementById('vorname').value;
 
                 if ( vn == null || vn == ''){
-                    alert('Vorname fehlt!');
+                    errors.push('Vorname');
                     document.getElementById('nachname').classList.remove("fehler");
                     document.getElementById('vorname').classList.add("fehler");
-                    return false;
                 }
             // Prüfe Geburtsdatum
                 var gd = document.getElementById('geburtsdatum').value;
 
                 if ( gd == null || gd == ''){
-                    alert('geburtsdatum fehlt!');
+                    errors.push('geburtsdatum');
                     document.getElementById('vorname').classList.remove("fehler");
                     document.getElementById('geburtsdatum').classList.add("fehler");
-                    return false;
                 }
             // Prüfe E-Mail
                 var em = document.getElementById('email').value;
 
                 if ( em == null || em == ''){
-                    alert('email fehlt!');
+                    errors.push('email');
                     document.getElementById('geburtsdatum').classList.remove("fehler");
                     document.getElementById('email').classList.add("fehler");
-                    return false;
                 }else if (!em.includes("@")){
-                    alert('email ungültig!');
+                    errors.push('email');
                     document.getElementById('geburtsdatum').classList.remove("fehler");
                     document.getElementById('email').classList.add("fehler");
-                    return false;
                 }
             // Prüfe PLZ
                 var p = document.getElementById('plz').value;
 
                 if ( p == null || p == ''){
-                    alert('plz fehlt!');
+                    errors.push('plz');
                     document.getElementById('email').classList.remove("fehler");
                     document.getElementById('plz').classList.add("fehler");
-                    return false;
                 }
 
-            document.getElementsByTagName("input").classList.remove("fehler");
-            return alert("Eingabe bestätigt!");
+            // document.getElementsByTagName("input").classList.remove("fehler");
+                if(errors.length>0){
+                //for (error of errors) {
+                   alert(errors+ " fehlt!");
+                //}
+                return false;
+            }
         }
     </script>
 </head>

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Jumbotron Template for Bootstrap</title>
+    <style>
+        .boxed {border: 2px solid red;} 
+    </style>
+
+
+  </head>
+  <div id="div1">Div 1</div>
+  <div id="div2" class="boxed">Div 2</div>
+  <div id="div3">Div 3</div>
+  <div id="div4" class="boxed">Div 4</div>
+ 
+  <button class="klassen">Klasse ändern</button>
+  <button class="klassen">Klasse ändern 2</button>
+  <button class="klassen">Klasse ändern 3</button>
+
+  <div id="jokes"></div>
+
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+
+<script>
+  $(function() {
+    $('.klassen').click(function() {
+      $('div').toggleClass('boxed');
+    });
+  })
+  jokes = []      
+  for(i=0;i<15;i++){
+    var joke = $.getJSON('https://api.chucknorris.io/jokes/random');
+    jokes.push(joke);
+  }
+  var text = "";
+  for(x of jokes){
+    var text = text+"<span>"+x+"</span><br>";
+    $('#jokes').append(text);
+  }
+          
+    </script>
+	
+  </body>
+</html>

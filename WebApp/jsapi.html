@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Dynamische Inhalte per JavaScript II</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous">
+    </script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <h2>Chuck Norrison Facts</h2>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-4" min="1" max="10">
+                <label for="numberOfFacts">Anzahl der CN Facts</label>
+                <input type="number" class="form-control" id="numberOfFacts" value="5" size="3"
+                    placeholder="Anzahl der Facts" required>
+                <button type="button" class="btn btn-primary" id="CNGet">Abholen</button>
+
+            </div>
+        </div>
+        <div class="row" id="jokesRow">
+
+        </div>
+    </div>
+    <script>
+        var jokesToDisplay = [];
+
+        $(function () {
+            $("#CNGet").click(function () {
+                // Button disablen
+                $(this).prop("disabled", true);
+                // Spinner einfügen
+                $(this).html(
+                    `<span id="spinner" class="spinner-border spinner-border-sm" role="status" aria-hidden="true">
+                    </span> Chuck Norris wird kontaktiert!...`
+                );
+
+                jokesToDisplay = [];
+                var anzahl = $('#numberOfFacts').val();
+
+                for (var i = 0; i < anzahl; i++) {
+                    $.getJSON('https://api.icndb.com/jokes/random?')
+                        .done(function (erhalteneDaten) {
+                            jokesToDisplay.push(erhalteneDaten.value.joke);
+                            console.log('pushed', erhalteneDaten.value.joke);
+                        })
+                        .fail(
+                            function (e) {
+                                console.log('Hat nicht funktioniert', e);
+                            }
+                        )
+                }
+            });
+        });
+
+        function displayJokes() {
+            $('#jokesRow').empty();
+            for (j of jokesToDisplay) {
+                let tempZZ = '<div class="col-12 col-md-4 p-5 border-primary">';
+                tempZZ += '<quote>' + j + '</quote>';
+                tempZZ += '</div>';
+                $('#jokesRow').append(tempZZ);
+            }
+
+        }
+
+        x = $('div');
+        console.log(typeof(x), x);
+        x.toArray();
+        console.log(typeof(x), x);
+
+
+
+        $(document).ajaxStop(function () {
+            $('#CNGet').prop('disabled', false);
+            $('#spinner').remove();
+            $('#CNGet').html('Absenden');
+            displayJokes();
+        });
+    </script>
